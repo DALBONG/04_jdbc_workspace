@@ -46,8 +46,7 @@ public class MemberMenu {
 					break;
 			case 5: updateMember();
 					break;
-			case 6: 
-					mc.deleteMember(inputMemberId());
+			case 6: mc.deleteMember(inputMemberId());
 					break;
 			case 0: System.out.println("이용 감사!");
 			return;
@@ -58,6 +57,8 @@ public class MemberMenu {
 	
 	/**
 	 * 회원 추가 창 (서브 화면)
+	 *  - > 회원추가를 하려면 당연히 입력을 받아야겠지, 해서 sysout / sc.next로 입력.
+	 * 
 	 * 추가하고자 하는 회원 정보를 입력받아 회원주가 요청하는 창
 	 */
 	public void inputMember() {

@@ -31,6 +31,7 @@ public class MemberController {
 		
 		Member m = new Member(userId, userPwd, userName, gender, Integer.parseInt(age), email, phone, address, hobby);
 			// 9개 짜리의 생성자가 없으므로 Member Class로 넘어가서 9개짜리 생성자 생성
+		     //  --> ArrayList가 아니므로, 다른 자료형인 int는 integer로 래핑(형변환 비슷한?) 해줘야 함
 		     // -- alt shift s, constructor using feild
 
 		int result = new MemberDao().insertMember(m);
