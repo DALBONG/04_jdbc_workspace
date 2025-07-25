@@ -1,0 +1,10 @@
+<entry kye="selectPd">
+	SELECT 
+		   PRODUCT_ID
+		 , P_NAME
+		 , PRICE
+		 , DESCRIPTION
+		 , STOCK 
+	  FROM PRODUCT
+
+</entry>
