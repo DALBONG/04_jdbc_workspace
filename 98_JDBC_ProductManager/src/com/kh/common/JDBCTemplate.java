@@ -1,10 +1,13 @@
 package com.kh.common;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 public class JDBCTemplate {
 
@@ -14,10 +17,22 @@ public class JDBCTemplate {
 	 */
 	public static Connection getConnection() {
 		Connection conn = null;
+//		25. properties 객체 생성
+		Properties prop = new Properties();
 		
 		try {
-			Class.forName("oracle.jdbc.driave.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "jdbc", "jdbc");
+// 	 	26. prop 객체 경로 지정 후 예외처리
+			try {
+				prop.load(new FileInputStream("resources/driver.properties"));
+// 		27. Properties 파일에 담은 내용 대입 
+				Class.forName(prop.getProperty("driver"));
+// 		28. Properties 파일에 담은 내용 대입 -> Dao 클래스로		
+				conn = DriverManager.getConnection(prop.getProperty("url")
+												 , prop.getProperty("username")
+												 , prop.getProperty("password"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
