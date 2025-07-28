@@ -44,6 +44,7 @@ public class ProductMenu {
 						 break;
 //				select name 1. 제품명으로 검색, pc로 바로 호출
 				case 5 : pc.selectPdName(inputPdName());
+						 break;
 				case 0 : System.out.println("프로그램 종료!");
 			return;
 				default : System.out.println("다시 입력!");
